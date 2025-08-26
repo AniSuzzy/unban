@@ -1,0 +1,94 @@
+/* Animated Neon Professional UI - Suzzy Tech */
+
+:root{
+  --panel-bg: rgba(6,8,15,0.6);
+  --glass: rgba(255,255,255,0.03);
+  --muted: rgba(255,255,255,0.6);
+  --accent: #00f6ff;
+  --radius: 16px;
+  --static-input-bg: #071018;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#000;overflow:auto;color:white}
+
+.bg-anim{
+  position:fixed;inset:0;z-index:0;
+  background: linear-gradient(120deg,#ff00c8,#00fff6,#8a5aff,#ffd600,#00ff8a);
+  background-size: 1000% 1000%;
+  filter: blur(36px) saturate(120%);
+  animation: bgShift 1.6s linear infinite;
+  mix-blend-mode: screen;
+  opacity:0.95;
+}
+
+@keyframes bgShift{
+  0%{background-position:0% 50%}
+  12%{background-position:12% 50%}
+  24%{background-position:25% 50%}
+  36%{background-position:37% 50%}
+  48%{background-position:50% 50%}
+  60%{background-position:62% 50%}
+  72%{background-position:75% 50%}
+  84%{background-position:87% 50%}
+  100%{background-position:100% 50%}
+}
+
+/* Layout */
+.app{position:relative;z-index:2;max-width:880px;margin:48px auto;padding:28px}
+.top{display:flex;flex-direction:column;gap:12px;margin-bottom:18px;align-items:flex-start}
+.logo-wrap{display:flex;align-items:center;gap:14px}
+.logo{width:56px;height:56px;border-radius:12px;box-shadow:0 6px 30px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.04)}
+.title{font-weight:800;font-size:28px;margin:0;letter-spacing:0.6px}
+.title .muted{font-weight:600;color:rgba(255,255,255,0.9);margin-left:6px}
+
+/* animated rainbow text - cycles colors every 0.3s */
+.rainbow-text{animation: textShift 0.9s linear infinite; background-clip:text; -webkit-background-clip:text; color:transparent; }
+@keyframes textShift{
+  0%{filter:hue-rotate(0deg); text-shadow:0 0 12px rgba(255,0,150,.12)}
+  33%{filter:hue-rotate(90deg); text-shadow:0 0 18px rgba(0,255,200,.12)}
+  66%{filter:hue-rotate(180deg); text-shadow:0 0 20px rgba(255,255,0,.12)}
+  100%{filter:hue-rotate(270deg); text-shadow:0 0 16px rgba(120,80,255,.12)}
+}
+
+/* typewriter fade animation for subtitle */
+.subtitle{margin:0;color:rgba(255,255,255,0.85);font-size:14px;opacity:0;animation:subtitleIn 1.6s ease forwards 0.2s}
+@keyframes subtitleIn{
+  0%{opacity:0;transform:translateY(6px);filter:blur(2px)}
+  100%{opacity:1;transform:none;filter:blur(0)}
+}
+
+/* panel */
+.panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:var(--radius); padding:20px; box-shadow:0 10px 40px rgba(0,0,0,.6), inset 0 0 0 1px rgba(255,255,255,.03); border:1px solid rgba(255,255,255,0.04); backdrop-filter: blur(6px)}
+
+/* labels and inputs */
+.field-label{display:block;color:var(--muted);font-size:13px;margin-bottom:8px}
+.input-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.input-row input[type="tel"]{flex:1;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);background:var(--static-input-bg);color:#fff;font-size:16px;box-shadow:0 6px 18px rgba(2,8,20,.6),0 0 18px rgba(0,255,230,.03) inset}
+.select-row select{flex:1;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);background:var(--static-input-bg);color:#fff;font-size:15px}
+.version-badge{min-width:64px;text-align:center;padding:10px;border-radius:10px;font-weight:700;color:#000;background:#00fff6;box-shadow:0 6px 30px rgba(0,255,246,.12)}
+
+/* buttons - distinct colors and glow */
+.actions{display:flex;gap:12px;margin-top:6px;flex-wrap:wrap}
+.btn{flex:1;padding:14px 16px;border-radius:12px;border:0;font-weight:700;cursor:pointer;backdrop-filter:blur(4px)}
+.btn-app{background:linear-gradient(90deg,#00f6ff,#00d1ff);color:#001820;box-shadow:0 10px 40px rgba(0,246,255,.12);transform:translateZ(0);transition:transform .18s ease, box-shadow .18s ease}
+.btn-web{background:linear-gradient(90deg,#ff66d9,#ff7a5a);color:#1d0011;box-shadow:0 10px 40px rgba(255,102,217,.12);transition:transform .18s ease, box-shadow .18s ease}
+.btn:hover{transform:translateY(-6px) scale(1.02)}
+.btn:active{transform:translateY(-2px)}
+.btn-app:hover{box-shadow:0 16px 70px rgba(0,246,255,.18)}
+.btn-web:hover{box-shadow:0 16px 70px rgba(255,102,217,.18)}
+
+/* footer */
+.foot{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:20px}
+.subscribe{display:inline-block;padding:12px 18px;border-radius:12px;font-weight:800;text-decoration:none;color:#0b0610;background:linear-gradient(90deg,#fff65a,#ff00c8);box-shadow:0 12px 40px rgba(255,0,200,.14);transition:transform .24s ease,box-shadow .24s ease}
+.subscribe:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 22px 80px rgba(255,0,200,.22)}
+
+/* small */
+.tiny{font-size:12px;color:rgba(255,255,255,.6)}
+
+/* responsiveness */
+@media(max-width:720px){
+  .app{padding:18px;margin:18px}
+  .title{font-size:20px}
+  .actions{flex-direction:column}
+}
