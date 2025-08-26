@@ -1,1 +1,0 @@
-# Suzzy Tech Whatsapp Unban\nDeploy to Vercel as a static site.
